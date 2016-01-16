@@ -13,5 +13,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="internal">
+      <UniqueIdentifier>{e5b779a1-51c0-4acd-844c-ab524506dcf9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="shared.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\vectorfuncs.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\array.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\common.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\iterator.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\perfcounter.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\vector4.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="ioutils.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ioutils.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
