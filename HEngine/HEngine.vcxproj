@@ -142,11 +142,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="api_shaders.cpp" />
+    <ClCompile Include="API\api_shaders.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="api_shaders.h" />
+    <ClInclude Include="API\api_shaders.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="HEngine.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\hengine.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

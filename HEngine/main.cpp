@@ -8,7 +8,7 @@
 #include <GL/glew.h> // include GLEW and new version of GL on Windows
 #include <GLFW/glfw3.h> // GLFW helper library
 #include <stdio.h>
-#include "api_shaders.h"
+#include "api/api_shaders.h"
 
 int main() {
 	// start GL context and O/S window using the GLFW helper library
