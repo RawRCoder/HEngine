@@ -5,4 +5,4 @@
 #define GLFW_STATIC
 #include <GL/glew.h>
 
-GLuint LoadShaderFromFile(const wchar_t* fileName, GLenum type);
+GLuint LoadShaderFromFile(const std::wstring& fileName, GLenum type);

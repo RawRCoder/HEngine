@@ -5,24 +5,28 @@
 #define GLEW_STATIC
 #define GLFW_STATIC
 
+#include <windows.h>
 #include <GL/glew.h> // include GLEW and new version of GL on Windows
 #include <GLFW/glfw3.h> // GLFW helper library
 #include <stdio.h>
 #include "api/api_shaders.h"
+#include "resource.h"
 
 int main() {
+
 	// start GL context and O/S window using the GLFW helper library
 	if (!glfwInit()) {
 		fprintf(stderr, "ERROR: could not start GLFW3\n");
 		return 1;
 	}
 
-	GLFWwindow* window = glfwCreateWindow(640, 480, "Hello Triangle", NULL, NULL);
+	auto window = glfwCreateWindow(800, 600, "HEngine", nullptr, nullptr);
 	if (!window) {
 		fprintf(stderr, "ERROR: could not open window with GLFW3\n");
 		glfwTerminate();
 		return 1;
 	}
+	FreeConsole();
 	glfwMakeContextCurrent(window);
 
 	// start GLEW extension handler
@@ -30,15 +34,20 @@ int main() {
 	glewInit();
 
 	// get version info
-	const GLubyte* renderer = glGetString(GL_RENDERER); // get renderer string
+	/*const GLubyte* renderer = glGetString(GL_RENDERER); // get renderer string
 	const GLubyte* version = glGetString(GL_VERSION); // version as a string
 	printf("Renderer: %s\n", renderer);
-	printf("OpenGL version supported %s\n", version);
+	printf("OpenGL version supported %s\n", version);*/
+
+	auto hWnd = GetActiveWindow();
+	HICON hicon = (HICON)LoadImageW(GetModuleHandleW(nullptr), MAKEINTRESOURCEW(APP_ICON), IMAGE_ICON, 0, 0, LR_DEFAULTCOLOR | LR_DEFAULTSIZE);
+	SendMessageW(hWnd, WM_SETICON, ICON_BIG, (LPARAM)hicon);
+
 
 	// tell GL to only draw onto a pixel if the shape is closer to the viewer
 	glEnable(GL_DEPTH_TEST); // enable depth-testing
 	glDepthFunc(GL_LESS); // depth-testing interprets a smaller value as "closer"
-	glEnable(GL_POINT_SPRITE);
+	glEnable(GL_POINT_SPRITE); 
 
 	float points[] = {
 		0.0f,  0.5f,  0.0f,
@@ -56,7 +65,7 @@ int main() {
 	glBindVertexArray(vao);
 	glEnableVertexAttribArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
 
 	auto vs = LoadShaderFromFile(L"fx\\test_vs.fx", GL_VERTEX_SHADER);
 	auto fs = LoadShaderFromFile(L"fx\\test_fs.fx", GL_FRAGMENT_SHADER);

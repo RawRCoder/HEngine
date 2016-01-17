@@ -44,3 +44,9 @@ struct AlignedObject
 	void* operator new(size_t sz) { return _aligned_malloc(sz, N); }
 	void operator delete(void* memory) { _aligned_free(memory); }
 };
+
+struct version_s
+{
+	u32 major, minor, revision, build;
+	version_s(u32 _ma, u32 _mi, u32 _re, u32 _bu) : major(_ma), minor(_mi), revision(_re), build(_bu) {}
+};

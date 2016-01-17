@@ -1,4 +1,5 @@
 #pragma once
-#include "shared.h"
+#include "hengine.h"
+#include <string>
 
-EXPORT char* ReadToEndAsString(const wchar_t* fileName);
+API std::string ReadToEndAsString(const std::wstring& fileName);

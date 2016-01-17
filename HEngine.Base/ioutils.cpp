@@ -1,7 +1,7 @@
 #include "ioutils.h"
 #include <fstream>
 
-char* ReadToEndAsString(const wchar_t* fileName)
+std::string ReadToEndAsString(const std::wstring& fileName)
 {
 	const int BUFFER_SIZE = 4096;
 	std::string s = "";
@@ -23,7 +23,5 @@ char* ReadToEndAsString(const wchar_t* fileName)
 		}
 	}
 	f.close();
-	auto ss = new char[s.length()+1];
-	strcpy_s(ss, s.length()+1, s.c_str());
-	return ss;
+	return s;
 }
